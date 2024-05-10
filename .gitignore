@@ -4,6 +4,6 @@
 #     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 
 #Arquivos python
-.env
+#.env
 test.ipynb
 app_copy.py
