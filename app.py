@@ -57,14 +57,21 @@ model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest",
                               safety_settings=safety_settings)
 
 
-def extract_csv_rows(pathname: str) -> list[str]:
-    rows = []
-    with open(pathname, 'r', encoding='utf-8') as csv_file:
+# Carrega as variáveis de ambiente do arquivo .env
+load_dotenv()
+
+# Caminho para o arquivo CSV
+csv_path = "eventos.csv"  # Coloque o caminho correto para o seu arquivo CSV
+
+# Função para carregar o conteúdo do arquivo CSV
+def load_csv_data(csv_path):
+    with open(csv_path, "r", encoding="utf-8") as csv_file:
         csv_reader = csv.reader(csv_file)
-        for index, row in enumerate(csv_reader):
-            rows.append(f"--- ROW {index} ---")
-            rows.extend(row)
-    return rows
+        csv_data = "\n".join(",".join(row) for row in csv_reader)
+    return csv_data
+
+# Carrega o conteúdo do arquivo CSV
+eventos_csv = load_csv_data(csv_path)
 
 # Configuração da aplicação Streamlit
 st.title('Descubra eventos em Goiânia que são a sua cara!')
@@ -74,14 +81,11 @@ user_question = st.text_input('O que você procura?')
 
 # Botão para gerar resposta
 if st.button('Enviar'):
-    # Construir prompt_parts com a pergunta do usuário
+    # Construir prompt_parts com a pergunta do usuário e os dados do CSV
     prompt_parts = [
         'Você é um assistente virtual e será procurado por várias pessoas para saber quais eventos aconteceram em Goiânia que mais combina com os gostos dessa pessoa. Retorne sempre, intusiasmado, os eventos que aconteceram de acordo com a lista de eventos disponibilizado e as demais informações contidas na lista',
         user_question,
-        #*extract_csv_rows("C:/severina_criativa/poc_severina/eventos.csv")
-        #*extract_csv_rows(r"C:\severina_criativa\poc_severina\eventos.csv")
-        *extract_csv_rows("C:\\severina_criativa\\poc_severina\\eventos.csv")
-
+        eventos_csv
     ]
 
     # Geração de conteúdo
