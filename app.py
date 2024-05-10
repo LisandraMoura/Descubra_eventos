@@ -61,7 +61,7 @@ model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest",
 load_dotenv()
 
 # Caminho para o arquivo CSV
-csv_path = "eventos.csv"  # Coloque o caminho correto para o seu arquivo CSV
+csv_path = "eventos2.csv"  # Coloque o caminho correto para o seu arquivo CSV
 
 # Função para carregar o conteúdo do arquivo CSV
 def load_csv_data(csv_path):
