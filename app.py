@@ -9,8 +9,6 @@ import os
 # Instale o pacote usando: pip install google-generativeai
 # ou instale diretamente no VS Code.
 
-# Configuração da chave API
-#genai.configure(api_key="AIzaSyBcb_FFOKNi-hUfkI5zvN1g5uF7HAkpXq8")
 
 # Carrega as variáveis de ambiente do arquivo .env
 load_dotenv()
