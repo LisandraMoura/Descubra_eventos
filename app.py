@@ -78,7 +78,7 @@ if st.button('Enviar'):
     prompt_parts = [
         'Você é um assistente virtual e será procurado por várias pessoas para saber quais eventos aconteceram em Goiânia que mais combina com os gostos dessa pessoa. Retorne sempre, intusiasmado, os eventos que aconteceram de acordo com a lista de eventos disponibilizado e as demais informações contidas na lista',
         user_question,
-        *extract_csv_rows("C:\severina_criativa\poc_severina\eventos.csv")
+        *extract_csv_rows("C:/severina_criativa/poc_severina/eventos.csv")
         #*extract_csv_rows(r"C:\severina_criativa\poc_severina\eventos.csv")
         #*extract_csv_rows("C:\\severina_criativa\\poc_severina\\eventos.csv")
 
