@@ -6,10 +6,6 @@ import csv
 import streamlit as st
 import os
 
-# Instale o pacote usando: pip install google-generativeai
-# ou instale diretamente no VS Code.
-
-
 # Carrega as variáveis de ambiente do arquivo .env
 load_dotenv()
 
@@ -61,7 +57,7 @@ model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest",
 load_dotenv()
 
 # Caminho para o arquivo CSV
-csv_path = "eventos2.csv"  # Coloque o caminho correto para o seu arquivo CSV
+csv_path = "eventos2.csv" 
 
 # Função para carregar o conteúdo do arquivo CSV
 def load_csv_data(csv_path):
